@@ -29,8 +29,6 @@ let currentLetter = "";
 let error = 0;
 let timeEl = null;
 
-const randomText = Math.floor(Math.random() * paragraphs.length);
-
 restart.addEventListener('click', function() {
       reset();
 });
@@ -84,7 +82,6 @@ function checkLetters() {
       textEl.textContent = null;
       currentLetter = paragraphs[randomText];
       currentLetter.split('').forEach(letter => {
-            console.log(letter)
             const letters = document.createElement('span');
             letters.innerText = letter;
             textEl.appendChild(letters);
@@ -130,6 +127,7 @@ function reset() {
       type = 0;
       inputEl.disabled = false;
       inputEl.value = "";
+      randomText = Math.floor(Math.random() * paragraphs.length);
       textEl.textContent = paragraphs[randomText];
       textEl.style.display = "block";
       table.style.display = "none";
